@@ -24,8 +24,8 @@ const messages = {
     home: {
       seoTitle: 'PPI Plâtrerie Peinture | Genève',
       seoDescription: 'PPI, plâtrerie et peinture à Genève : cloisons, peinture intérieure, faux plafonds, enduits et ratissage. Un travail soigné, de la préparation à la finition.',
-      location: 'Genève – Suisse romande',
-      headline: 'Plâtrerie et peinture Genève',
+      location: 'Genève · Suisse',
+      headline: 'Plâtrerie et peinture · Genève',
       quote: 'Demander un devis ↗',
       finishes: 'Finitions',
       apartment: 'Appartement — murs et plafonds blancs',
@@ -46,7 +46,7 @@ const messages = {
       discover: 'Découvrir PPI ↗',
       imageApartment: 'Appartement blanc avec armoire encastrée et applique murale',
       imageOpening: 'Mur blanc perforé avec ouverture circulaire',
-      imageSalon: 'Salon beige avec une porte en arc',
+      imageLivingRoom: 'Séjour avec lattes de bois, niche lumineuse et parquet en chevrons',
     },
     services: {
       kicker: 'Prestations · Genève',
@@ -212,8 +212,8 @@ const messages = {
     home: {
       seoTitle: 'PPI Plastering and Painting | Geneva',
       seoDescription: 'PPI provides plastering and painting in Geneva, including partitions, interior painting, suspended ceilings and wall finishes. Careful work from preparation to completion.',
-      location: 'Geneva – French-speaking Switzerland',
-      headline: 'Plastering and painting Geneva',
+      location: 'Geneva · Switzerland',
+      headline: 'Plastering and painting · Geneva',
       quote: 'Request a quote ↗',
       finishes: 'Finishes',
       apartment: 'Apartment — white walls and ceilings',
@@ -234,7 +234,7 @@ const messages = {
       discover: 'Discover PPI ↗',
       imageApartment: 'White apartment with a built-in wardrobe and wall light',
       imageOpening: 'White perforated wall with circular opening',
-      imageSalon: 'Beige living room with an arched doorway',
+      imageLivingRoom: 'Living room with wood slats, illuminated niche and herringbone parquet',
     },
     services: {
       kicker: 'Services · Geneva',
