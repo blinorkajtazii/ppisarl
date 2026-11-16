@@ -25,10 +25,24 @@ useMotion()
         <span class="label">{{ copy.projects.finishes }}</span>
       </div>
       <div class="grid">
-        <figure v-for="p in finitions" :key="p.src" class="grid__item">
-          <PhotoFrame v-bind="{ src: p.src, alt: language === 'en' ? p.altEn : p.alt, width: p.width, height: p.height, ratio: p.ratio, pos: p.pos }" zoom />
-          <figcaption data-reveal>{{ language === 'en' ? p.captionEn : p.caption }}</figcaption>
-        </figure>
+        <template v-for="(p, i) in finitions" :key="p.type === 'before-after' ? `pair-${i}` : p.src">
+          <BeforeAfter
+            v-if="p.type === 'before-after'"
+            :before="p.before"
+            :after="p.after"
+            :title="language === 'en' ? p.captionEn : p.caption"
+            :description="language === 'en' ? p.descriptionEn : p.description"
+          />
+          <figure v-else class="grid__item">
+            <PhotoFrame v-bind="{ src: p.src, alt: language === 'en' ? p.altEn : p.alt, width: p.width, height: p.height, ratio: p.ratio, pos: p.pos }" zoom />
+            <figcaption data-reveal>
+              <div class="gallery-caption">
+                <span class="gallery-caption__title">{{ language === 'en' ? p.captionEn : p.caption }}</span>
+                <p v-if="p.description" class="gallery-caption__description">{{ language === 'en' ? p.descriptionEn : p.description }}</p>
+              </div>
+            </figcaption>
+          </figure>
+        </template>
       </div>
     </section>
 
@@ -41,7 +55,10 @@ useMotion()
         <figure v-for="p in chantiers" :key="p.src" class="grid__item" :class="{ 'grid__item--wide': p.wide }">
           <PhotoFrame v-bind="{ src: p.src, alt: language === 'en' ? p.altEn : p.alt, width: p.width, height: p.height, ratio: p.ratio, pos: p.pos }" zoom />
           <figcaption data-reveal>
-            {{ language === 'en' ? p.captionEn : p.caption }}
+            <div class="gallery-caption">
+              <span class="gallery-caption__title">{{ language === 'en' ? p.captionEn : p.caption }}</span>
+              <p v-if="p.description" class="gallery-caption__description">{{ language === 'en' ? p.descriptionEn : p.description }}</p>
+            </div>
             <span>{{ copy.common.inProgress }}</span>
           </figcaption>
         </figure>

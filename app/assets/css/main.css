@@ -331,9 +331,16 @@ main { padding-top: var(--header-h); }
 .grid__item:nth-child(even):not(.grid__item--wide) { margin-top: clamp(0px, 8vw, 120px); }
 .grid figcaption { display: flex; justify-content: space-between; gap: 16px; margin-top: 14px; font-weight: 500; }
 .grid figcaption span { color: var(--mute); font-weight: 400; white-space: nowrap; }
+.grid figcaption .gallery-caption__title { color: var(--ink); font-weight: 500; white-space: normal; }
+.grid figcaption .gallery-caption__description { margin-top: 4px; color: var(--mute); font-weight: 400; }
+.before-after { grid-column: 1 / -1; }
+.before-after__photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 3vw, 44px); }
+.before-after__photo .label { display: block; margin-bottom: 8px; }
+.grid .before-after figcaption { display: block; }
 @media (max-width: 700px) {
   .grid { grid-template-columns: 1fr; }
   .grid__item:nth-child(even):not(.grid__item--wide) { margin-top: 0; }
+  .before-after__photos { grid-template-columns: 1fr; }
 }
 
 /* ---------- Contact ---------- */

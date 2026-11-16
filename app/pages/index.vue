@@ -13,13 +13,12 @@ useMotion()
     <section class="hero">
       <div class="hero__img">
         <picture>
-          <source srcset="/img/hero-sejour.webp" type="image/webp" />
           <img
             data-hero-img
-            src="/img/hero-sejour.jpg"
-            :alt="copy.home.imageLivingRoom"
-            width="1024"
-            height="682"
+            :src="'/img/hero-salon.jpg'"
+            :alt="copy.home.imageSalon"
+            width="721"
+            height="402"
             fetchpriority="high"
             decoding="async"
           />
@@ -31,40 +30,6 @@ useMotion()
           <h1 class="display" data-hero>{{ copy.home.headline }}</h1>
         </div>
         <NuxtLink to="/contact" class="button button--light" data-hero>{{ copy.home.quote }}</NuxtLink>
-      </div>
-    </section>
-
-    <section class="project wrap">
-      <PhotoFrame
-        src="/img/finition-appartement.jpg"
-        :alt="copy.home.imageApartment"
-        :width="1024"
-        :height="682"
-        ratio="16 / 8"
-        parallax
-      />
-      <div class="project__meta" data-reveal>
-        <span class="label">{{ copy.home.finishes }}</span>
-        <h2 class="project__title">{{ copy.home.apartment }}</h2>
-        <NuxtLink to="/realisations" class="link">{{ copy.home.allProjects }}</NuxtLink>
-      </div>
-    </section>
-
-    <section class="project wrap">
-      <div class="project--split">
-        <PhotoFrame
-          src="/img/finition-ouverture.jpg"
-          :alt="copy.home.imageOpening"
-          :width="768"
-          :height="1024"
-          ratio="4 / 5"
-          parallax
-        />
-        <div class="project__meta" data-reveal>
-          <span class="label">{{ copy.home.finishes }}</span>
-          <h2 class="project__title">{{ copy.home.acousticWall }}</h2>
-          <p class="muted">{{ copy.home.acousticDesc }}</p>
-        </div>
       </div>
     </section>
 
