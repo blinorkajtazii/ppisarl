@@ -206,6 +206,7 @@ main { padding-top: var(--header-h); }
 /* ---------- Cadres photo ---------- */
 .frame { position: relative; overflow: hidden; background: var(--soft); }
 .frame__zoom { position: absolute; inset: 0; transition: transform 1.2s var(--ease); }
+.frame__zoom picture { display: block; width: 100%; height: 100%; }
 .frame img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 50%); }
 .frame[data-parallax] .frame__zoom { inset: -9% 0; }
 .frame--zoom:hover .frame__zoom { transform: scale(1.05); }
@@ -220,6 +221,7 @@ main { padding-top: var(--header-h); }
   background: #222;
 }
 .hero__img { position: absolute; inset: 0; }
+.hero__img picture { display: block; width: 100%; height: 100%; }
 .hero__img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
 .hero::after {
   content: '';

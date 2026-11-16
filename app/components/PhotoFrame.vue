@@ -10,6 +10,8 @@ const props = defineProps<{
   eager?: boolean
   zoom?: boolean
 }>()
+
+const webpSrc = computed(() => props.src.replace(/\.jpe?g$/i, '.webp'))
 </script>
 
 <template>
@@ -21,7 +23,18 @@ const props = defineProps<{
     :data-parallax="parallax ? '' : undefined"
   >
     <div class="frame__zoom">
-      <img :src="src" :alt="alt" :width="width" :height="height" :loading="eager ? 'eager' : 'lazy'" decoding="async" />
+      <picture>
+        <source :srcset="webpSrc" type="image/webp" />
+        <img
+          :src="src"
+          :alt="alt"
+          :width="width"
+          :height="height"
+          :loading="eager ? 'eager' : 'lazy'"
+          :fetchpriority="eager ? 'high' : undefined"
+          decoding="async"
+        />
+      </picture>
     </div>
   </div>
 </template>

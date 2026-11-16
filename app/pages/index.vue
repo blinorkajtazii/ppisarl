@@ -12,14 +12,18 @@ useMotion()
   <div>
     <section class="hero">
       <div class="hero__img">
-        <img
-          data-hero-img
-          src="/img/hero-sejour.jpg"
-          :alt="copy.home.imageLivingRoom"
-          width="1024"
-          height="682"
-          fetchpriority="high"
-        />
+        <picture>
+          <source srcset="/img/hero-sejour.webp" type="image/webp" />
+          <img
+            data-hero-img
+            src="/img/hero-sejour.jpg"
+            :alt="copy.home.imageLivingRoom"
+            width="1024"
+            height="682"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
       </div>
       <div class="hero__text">
         <div>

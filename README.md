@@ -3,6 +3,7 @@
 Nuxt website for PPI Plâtrerie Peinture.
 
 The site is available in French and English. Use the FR/EN selector in the header; your choice is saved for future visits.
+Photos use same-name WebP files when supported, with JPEG fallbacks.
 
 ## Requirements
 
