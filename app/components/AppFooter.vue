@@ -1,38 +1,39 @@
 <script setup lang="ts">
 const year = new Date().getFullYear()
+const { copy } = useLanguage()
 </script>
 
 <template>
   <footer class="footer wrap">
     <div class="footer__top">
       <div>
-        <NuxtLink to="/" class="footer__logo" aria-label="PPI, accueil">
+        <NuxtLink to="/" class="footer__logo" :aria-label="copy.common.home">
           <img src="/img/logo-crop.jpg" alt="PPI" width="600" height="440" />
         </NuxtLink>
       </div>
       <div>
-        <h3>Navigation</h3>
+        <h3>{{ copy.common.navigation }}</h3>
         <ul>
-          <li><NuxtLink to="/prestations">Prestations</NuxtLink></li>
-          <li><NuxtLink to="/realisations">Réalisations</NuxtLink></li>
-          <li><NuxtLink to="/entreprise">L'entreprise</NuxtLink></li>
-          <li><NuxtLink to="/contact">Demander un devis</NuxtLink></li>
+          <li><NuxtLink to="/prestations">{{ copy.common.services }}</NuxtLink></li>
+          <li><NuxtLink to="/realisations">{{ copy.common.projects }}</NuxtLink></li>
+          <li><NuxtLink to="/entreprise">{{ copy.common.company }}</NuxtLink></li>
+          <li><NuxtLink to="/contact">{{ copy.common.quote }}</NuxtLink></li>
         </ul>
       </div>
       <div>
-        <h3>Contact</h3>
+        <h3>{{ copy.common.contact }}</h3>
         <ul>
           <li><a href="tel:+41783262825">078 326 28 25</a></li>
-          <li>Genève et environs</li>
-          <li class="muted">Adresse à définir</li>
+          <li>{{ copy.common.location }}</li>
+          <li class="muted">{{ copy.contact.emailAddress }}</li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
       <span>© {{ year }} PPI Plâtrerie Peinture</span>
       <div>
-        <NuxtLink to="/mentions-legales">Mentions légales</NuxtLink>
-        <NuxtLink to="/confidentialite">Confidentialité</NuxtLink>
+        <NuxtLink to="/mentions-legales">{{ copy.common.legal }}</NuxtLink>
+        <NuxtLink to="/confidentialite">{{ copy.common.privacy }}</NuxtLink>
       </div>
     </div>
   </footer>

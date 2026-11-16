@@ -122,6 +122,18 @@ html.nav-hidden:not(.menu-open) .header { transform: translateY(-100%); }
 .header__logo img { height: 46px; width: auto; mix-blend-mode: multiply; }
 .header__side { display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); }
 .header__tel { font-weight: 600; font-size: 0.95rem; }
+.language-switch { display: inline-flex; gap: 0.35em; }
+.language-switch button {
+  border: 0;
+  background: none;
+  padding: 0.4em 0.1em;
+  color: var(--mute);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.language-switch button[aria-pressed='true'] { color: var(--red); }
 .header__menu {
   display: inline-flex;
   align-items: center;

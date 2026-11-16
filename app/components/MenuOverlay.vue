@@ -2,16 +2,17 @@
 import { gsap } from 'gsap'
 
 const { open, close } = useMenu()
+const { copy } = useLanguage()
 const route = useRoute()
 const nuxtApp = useNuxtApp()
 const root = ref<HTMLElement | null>(null)
 
 const links = [
-  { to: '/', label: 'Accueil' },
-  { to: '/prestations', label: 'Prestations' },
-  { to: '/realisations', label: 'Réalisations' },
-  { to: '/entreprise', label: "L'entreprise" },
-  { to: '/contact', label: 'Demander un devis' },
+  { to: '/', key: 'home' },
+  { to: '/prestations', key: 'services' },
+  { to: '/realisations', key: 'projects' },
+  { to: '/entreprise', key: 'company' },
+  { to: '/contact', key: 'quote' },
 ]
 
 watch(open, (isOpen) => {
@@ -45,14 +46,14 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         <NuxtLink :to="l.to" class="menu__link">
           <span class="menu__num">0{{ i + 1 }}</span>
           <span class="menu__mask">
-            <span class="menu__text" data-menu-item>{{ l.label }}</span>
+            <span class="menu__text" data-menu-item>{{ copy.common[l.key] }}</span>
           </span>
         </NuxtLink>
       </li>
     </ul>
     <div class="menu__foot">
       <a href="tel:+41783262825">078 326 28 25</a>
-      <span>Plâtrerie et peinture · Genève</span>
+      <span>{{ copy.common.companyShort }}</span>
     </div>
   </div>
 </template>

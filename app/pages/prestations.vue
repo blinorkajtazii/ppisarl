@@ -1,54 +1,33 @@
 <script setup lang="ts">
+const { copy } = useLanguage()
+
 useSeoMeta({
-  title: 'Prestations | PPI Plâtrerie Peinture',
-  description: 'Plâtrerie, peinture intérieure, faux plafonds, enduits et ratissage à Genève.',
+  title: computed(() => `${copy.value.common.services} | PPI Plâtrerie Peinture`),
+  description: computed(() => copy.value.services.lead),
 })
 useMotion()
 
-const services = [
-  {
-    id: 'platrerie',
-    kicker: '01 / Plâtrerie',
-    title: ['Structurer', 'vos espaces.'],
-    text: 'Nous réalisons vos travaux de plâtrerie pour aménager, transformer et optimiser vos espaces intérieurs.',
-    items: ['Pose de plaques de plâtre', 'Création de cloisons', 'Doublage des murs', 'Habillages et aménagements'],
-    img: { src: '/img/chantier-plaques.jpg', alt: 'Plafond en plaques de plâtre sur structure acier', width: 768, height: 1024, ratio: '4 / 5' },
-  },
-  {
-    id: 'peinture',
-    kicker: '02 / Peinture intérieure',
-    title: ['Révéler', 'vos ambiances.'],
-    text: 'La préparation des supports et le choix des finitions contribuent à un résultat harmonieux et soigné.',
-    items: ['Peinture des murs et plafonds', 'Préparation des surfaces', 'Rafraîchissement intérieur', 'Finitions décoratives selon le projet'],
-    img: { src: '/img/finition-bureau.jpg', alt: 'Bureau avec plafond bleu et retombée courbe', width: 768, height: 1024, ratio: '4 / 5' },
-  },
-  {
-    id: 'faux-plafonds',
-    kicker: '03 / Faux plafonds',
-    title: ['Donner du rythme', 'à vos volumes.'],
-    text: 'Des solutions de plafonds adaptées à la configuration de vos pièces et à l’esthétique recherchée.',
-    items: ['Faux plafonds en plaques de plâtre', 'Plafonds suspendus', 'Retombées et habillages', 'Préparation des surfaces avant peinture'],
-    img: { src: '/img/finition-cafeteria.jpg', alt: 'Cafétéria avec faux plafond acoustique perforé', width: 768, height: 1024, ratio: '4 / 5' },
-  },
-  {
-    id: 'enduits',
-    kicker: '04 / Enduits & ratissage',
-    title: ['Préparer la base', 'd’une belle finition.'],
-    text: 'Un support régulier est essentiel pour obtenir un rendu final de qualité. Nous préparons les surfaces avec minutie.',
-    items: ['Enduisage des murs et plafonds', 'Ratissage', 'Rebouchage des imperfections', 'Ponçage et préparation avant peinture'],
-    img: { src: '/img/chantier-ouverture.jpg', alt: 'Mur en plaques avec joints enduits avant peinture', width: 1024, height: 1024, ratio: '4 / 5', pos: '55% 50%' },
-  },
+const serviceImages = [
+  { src: '/img/chantier-plaques.jpg', width: 768, height: 1024, ratio: '4 / 5' },
+  { src: '/img/finition-bureau.jpg', width: 768, height: 1024, ratio: '4 / 5' },
+  { src: '/img/finition-cafeteria.jpg', width: 768, height: 1024, ratio: '4 / 5' },
+  { src: '/img/chantier-ouverture.jpg', width: 1024, height: 1024, ratio: '4 / 5', pos: '55% 50%' },
 ]
+
+const services = computed(() => copy.value.services.items.map((service, index) => ({
+  ...service,
+  img: { ...serviceImages[index], alt: service.alt },
+})))
 </script>
 
 <template>
   <div>
     <PageHero
-      kicker="Prestations · Genève"
-      lead="Des travaux préparés avec soin, exécutés avec précision et adaptés à votre intérieur."
-      :img="{ src: '/img/chantier-sejour.jpg', alt: 'Séjour en plaques de plâtre avant enduit', width: 1024, height: 786, pos: '50% 45%' }"
+      :kicker="copy.services.kicker"
+      :lead="copy.services.lead"
+      :img="{ src: '/img/chantier-sejour.jpg', alt: copy.services.image, width: 1024, height: 786, pos: '50% 45%' }"
     >
-      <template #title>Des prestations <em>pensées pour durer.</em></template>
+      <template #title>{{ copy.services.title }} <em>{{ copy.services.titleEmphasis }}</em></template>
     </PageHero>
 
     <section class="wrap" style="padding-top: clamp(32px, 6vw, 96px)">

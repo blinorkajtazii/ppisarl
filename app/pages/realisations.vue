@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { finitions, chantiers } from '~/data/projects'
 
+const { copy, language } = useLanguage()
+
 useSeoMeta({
-  title: 'Réalisations | PPI Plâtrerie Peinture',
-  description: 'Finitions et chantiers en cours : plâtrerie, faux plafonds et peinture à Genève.',
+  title: computed(() => `${copy.value.common.projects} | PPI Plâtrerie Peinture`),
+  description: computed(() => copy.value.projects.lead),
 })
 useMotion()
 </script>
@@ -11,36 +13,36 @@ useMotion()
 <template>
   <div>
     <PageHero
-      kicker="Réalisations"
-      lead="Des intérieurs terminés, et des chantiers en cours : ce qui se voit à la fin se prépare dès le début."
+      :kicker="copy.projects.kicker"
+      :lead="copy.projects.lead"
     >
-      <template #title>Le soin du détail <em>en images.</em></template>
+      <template #title>{{ copy.projects.title }} <em>{{ copy.projects.titleEmphasis }}</em></template>
     </PageHero>
 
     <section class="section wrap">
       <div class="group__head" data-reveal>
-        <h2 class="title">Finitions</h2>
-        <span class="label">Travaux terminés</span>
+        <h2 class="title">{{ copy.common.finish }}</h2>
+        <span class="label">{{ copy.projects.finishes }}</span>
       </div>
       <div class="grid">
         <figure v-for="p in finitions" :key="p.src" class="grid__item">
-          <PhotoFrame v-bind="{ src: p.src, alt: p.alt, width: p.width, height: p.height, ratio: p.ratio, pos: p.pos }" zoom />
-          <figcaption data-reveal>{{ p.caption }}</figcaption>
+          <PhotoFrame v-bind="{ src: p.src, alt: language === 'en' ? p.altEn : p.alt, width: p.width, height: p.height, ratio: p.ratio, pos: p.pos }" zoom />
+          <figcaption data-reveal>{{ language === 'en' ? p.captionEn : p.caption }}</figcaption>
         </figure>
       </div>
     </section>
 
     <section class="section wrap" style="padding-top: 0">
       <div class="group__head" data-reveal>
-        <h2 class="title">Chantier</h2>
-        <span class="label">Travaux en cours</span>
+        <h2 class="title">{{ copy.projects.site }}</h2>
+        <span class="label">{{ copy.projects.workInProgress }}</span>
       </div>
       <div class="grid">
         <figure v-for="p in chantiers" :key="p.src" class="grid__item" :class="{ 'grid__item--wide': p.wide }">
-          <PhotoFrame v-bind="{ src: p.src, alt: p.alt, width: p.width, height: p.height, ratio: p.ratio, pos: p.pos }" zoom />
+          <PhotoFrame v-bind="{ src: p.src, alt: language === 'en' ? p.altEn : p.alt, width: p.width, height: p.height, ratio: p.ratio, pos: p.pos }" zoom />
           <figcaption data-reveal>
-            {{ p.caption }}
-            <span>En cours</span>
+            {{ language === 'en' ? p.captionEn : p.caption }}
+            <span>{{ copy.common.inProgress }}</span>
           </figcaption>
         </figure>
       </div>
