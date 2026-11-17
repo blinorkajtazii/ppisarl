@@ -156,7 +156,6 @@ const services: Service[] = [
     <PageHero
       :kicker="copy.services.kicker"
       :lead="copy.services.lead"
-      :img="{ src: '/img/chantier-sejour.jpg', alt: copy.services.image, width: 1024, height: 786, pos: '50% 45%' }"
     >
       <template #title>{{ copy.services.title }} <em>{{ copy.services.titleEmphasis }}</em></template>
     </PageHero>
