@@ -36,10 +36,10 @@ useMotion()
 
     <section class="project wrap">
       <PhotoFrame
-        src="/img/finition-appartement.jpg"
-        :alt="copy.home.imageApartment"
-        :width="1024"
-        :height="682"
+        src="/img/salon-arche.jpg"
+        alt="Salon aux tons beige, avec une arche"
+        :width="1408"
+        :height="786"
         ratio="16 / 8"
         parallax
       />
