@@ -18,8 +18,11 @@ export interface Project extends ProjectImage {
 
 export interface BeforeAfterPair {
   type: 'before-after'
+  id: string
+  switcherLabel: string
   before: ProjectImage
   after: ProjectImage
+  ratio: string
   caption: string
   captionEn: string
   description?: string
@@ -29,6 +32,63 @@ export interface BeforeAfterPair {
 export type Finish = Project | BeforeAfterPair
 
 const img = (name: string) => `/img/${name}.jpg`
+
+export const pairs: BeforeAfterPair[] = [
+  {
+    type: 'before-after',
+    id: 'sejour',
+    switcherLabel: 'Séjour',
+    before: {
+      src: img('chantier-sejour'),
+      alt: 'Séjour en plaques de plâtre avant enduit, avec couloir',
+      altEn: 'Plasterboard living room before plastering, with hallway',
+      width: 1024,
+      height: 786,
+      ratio: '4 / 5',
+      pos: '50% 50%',
+    },
+    after: {
+      src: img('hero-sejour'),
+      alt: 'Séjour terminé avec parquet et éléments décoratifs',
+      altEn: 'Finished living room with parquet flooring and decorative details',
+      width: 1024,
+      height: 682,
+      ratio: '4 / 5',
+      pos: '50% 50%',
+    },
+    ratio: '3 / 2',
+    caption: 'Création de faux plafonds & éléments décoratifs',
+    description: 'Travaux de plâtrerie et peinture sur mesure avec faux plafonds, encadrements et finitions soignées.',
+    captionEn: 'Suspended ceilings & decorative features',
+    descriptionEn: 'Custom plastering and painting with suspended ceilings, surrounds and carefully finished details.',
+  },
+  {
+    type: 'before-after',
+    id: 'mur-decoratif',
+    switcherLabel: 'Mur décoratif',
+    before: {
+      src: img('chantier-ouverture'),
+      alt: 'Mur en plaques avec ouverture circulaire avant peinture',
+      altEn: 'Plasterboard wall with circular opening before painting',
+      width: 1024,
+      height: 1024,
+      ratio: '4 / 5',
+      pos: '55% 48%',
+    },
+    after: {
+      src: img('chantier-ouverture-noir'),
+      alt: 'Mur décoratif noir avec ouverture circulaire blanche',
+      altEn: 'Black feature wall with a white circular opening',
+      width: 1254,
+      height: 1254,
+      ratio: '4 / 5',
+      pos: '50% 50%',
+    },
+    ratio: '3 / 2',
+    caption: 'Réalisation d’un mur décoratif, alliant volumes, formes et finitions soignées',
+    captionEn: 'A feature wall combining volume, shape and carefully finished details',
+  },
+]
 
 export const finitions: Finish[] = [
   {
@@ -113,54 +173,7 @@ export const finitions: Finish[] = [
     ratio: '4 / 5',
     pos: '50% 48%',
   },
-  {
-    type: 'before-after',
-    before: {
-      src: img('chantier-sejour'),
-      alt: 'Séjour en plaques de plâtre avant enduit, avec couloir',
-      altEn: 'Plasterboard living room before plastering, with hallway',
-      width: 1024,
-      height: 786,
-      ratio: '4 / 5',
-      pos: '50% 50%',
-    },
-    after: {
-      src: img('hero-sejour'),
-      alt: 'Séjour terminé avec parquet et éléments décoratifs',
-      altEn: 'Finished living room with parquet flooring and decorative details',
-      width: 1024,
-      height: 682,
-      ratio: '4 / 5',
-      pos: '50% 50%',
-    },
-    caption: 'Création de faux plafonds & éléments décoratifs',
-    description: 'Travaux de plâtrerie et peinture sur mesure avec faux plafonds, encadrements et finitions soignées.',
-    captionEn: 'Suspended ceilings & decorative features',
-    descriptionEn: 'Custom plastering and painting with suspended ceilings, surrounds and carefully finished details.',
-  },
-  {
-    type: 'before-after',
-    before: {
-      src: img('chantier-ouverture'),
-      alt: 'Mur en plaques avec ouverture circulaire avant peinture',
-      altEn: 'Plasterboard wall with circular opening before painting',
-      width: 1024,
-      height: 1024,
-      ratio: '4 / 5',
-      pos: '55% 48%',
-    },
-    after: {
-      src: img('chantier-ouverture-noir'),
-      alt: 'Mur décoratif noir avec ouverture circulaire blanche',
-      altEn: 'Black feature wall with a white circular opening',
-      width: 1254,
-      height: 1254,
-      ratio: '4 / 5',
-      pos: '50% 50%',
-    },
-    caption: 'Réalisation d’un mur décoratif, alliant volumes, formes et finitions soignées',
-    captionEn: 'A feature wall combining volume, shape and carefully finished details',
-  },
+  ...pairs,
 ]
 
 export const chantiers: Project[] = [

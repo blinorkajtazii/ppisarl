@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import { pairs } from '~/data/projects'
+
 const { copy } = useLanguage()
+const selectedPairIndex = ref(0)
+const selectedPair = computed(() => pairs[selectedPairIndex.value]!)
+const comparisonHintUsed = ref(false)
 
 useSeoMeta({
   title: computed(() => copy.value.home.seoTitle),
@@ -42,6 +47,52 @@ useMotion()
           <span class="metier__name">{{ m.name }}</span>
           <span class="metier__desc">{{ m.desc }}</span>
         </NuxtLink>
+      </div>
+    </section>
+
+    <section class="section wrap home-comparison">
+      <div class="home-comparison__layout">
+        <div class="home-comparison__copy">
+          <p class="label" data-reveal>Réalisations</p>
+          <h2 class="title" data-reveal>Du chantier <em>à la finition.</em></h2>
+          <p class="muted home-comparison__hint" data-reveal>Faites glisser pour comparer.</p>
+          <div class="home-comparison__switcher" data-reveal role="group" aria-label="Choisir une réalisation">
+            <button
+              v-for="(pair, index) in pairs"
+              :key="pair.id"
+              type="button"
+              class="home-comparison__switch"
+              :class="{ 'home-comparison__switch--active': pair.id === selectedPair.id }"
+              :aria-pressed="pair.id === selectedPair.id"
+              @click="selectedPairIndex = index"
+            >
+              {{ pair.switcherLabel }}
+            </button>
+          </div>
+          <Transition name="comparison-fade" mode="out-in">
+            <div :key="selectedPair.id" class="home-comparison__caption" aria-live="polite">
+              <h3>{{ selectedPair.caption }}</h3>
+              <p v-if="selectedPair.description" class="muted">{{ selectedPair.description }}</p>
+            </div>
+          </Transition>
+          <NuxtLink to="/realisations" class="link home-comparison__link" data-reveal>
+            Toutes les réalisations ↗
+          </NuxtLink>
+        </div>
+        <div class="home-comparison__slider" data-reveal>
+          <Transition name="comparison-fade" mode="out-in">
+            <BeforeAfterSlider
+              :key="selectedPair.id"
+              class="home-comparison__slider-frame"
+              :before="selectedPair.before"
+              :after="selectedPair.after"
+              :ratio="selectedPair.ratio"
+              :initial="50"
+              :hint-enabled="!comparisonHintUsed"
+              @hint-used="comparisonHintUsed = true"
+            />
+          </Transition>
+        </div>
       </div>
     </section>
 
