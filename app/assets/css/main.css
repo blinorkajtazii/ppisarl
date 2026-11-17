@@ -365,7 +365,7 @@ main { padding-top: var(--header-h); }
   .hero__text .display { font-size: clamp(1.8rem, 4.2vw, 4.2rem); }
 }
 @media (max-width: 700px) {
-  .hero__text { bottom: clamp(96px, 14vh, 128px); }
+  .hero__text { bottom: calc(clamp(96px, 14vh, 128px) + 100px); }
 }
 
 .project { padding-block: clamp(48px, 7vw, 110px) 0; }
