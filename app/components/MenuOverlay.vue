@@ -52,7 +52,6 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
       </li>
     </ul>
     <div class="menu__foot">
-      <a href="tel:+41783262825">078 326 28 25</a>
       <span>{{ copy.common.companyShort }}</span>
     </div>
   </div>
