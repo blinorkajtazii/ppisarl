@@ -39,17 +39,6 @@ useMotion()
       </div>
     </section>
 
-    <section class="section wrap">
-      <p class="label" data-reveal>{{ copy.home.trades }}</p>
-      <div class="metiers">
-        <NuxtLink v-for="(m, i) in copy.home.services" :key="m.id" :to="`/prestations#${m.id}`" class="metier" data-reveal>
-          <span class="metier__num">0{{ i + 1 }}</span>
-          <span class="metier__name">{{ m.name }}</span>
-          <span class="metier__desc">{{ m.desc }}</span>
-        </NuxtLink>
-      </div>
-    </section>
-
     <section class="section wrap home-comparison">
       <div class="home-comparison__layout">
         <div class="home-comparison__copy">
@@ -90,6 +79,17 @@ useMotion()
             @hint-used="comparisonHintUsed = true"
           />
         </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <p class="label" data-reveal>{{ copy.home.trades }}</p>
+      <div class="metiers">
+        <NuxtLink v-for="(m, i) in copy.home.services" :key="m.id" :to="`/prestations#${m.id}`" class="metier" data-reveal>
+          <span class="metier__num">0{{ i + 1 }}</span>
+          <span class="metier__name">{{ m.name }}</span>
+          <span class="metier__desc">{{ m.desc }}</span>
+        </NuxtLink>
       </div>
     </section>
 

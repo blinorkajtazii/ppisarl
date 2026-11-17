@@ -37,7 +37,7 @@ const submit = () => {
     <PageHero
       :kicker="copy.contact.kicker"
       :lead="copy.contact.lead"
-      :img="{ src: '/img/hero-sejour.jpg', alt: copy.contact.image, width: 1024, height: 682, pos: '75% 55%' }"
+      :img="{ src: '/img/contact-room.jpg', alt: copy.contact.image, width: 1535, height: 1024, pos: '50% 50%' }"
     >
       <template #title>{{ copy.contact.title }} <em>{{ copy.contact.titleEmphasis }}</em></template>
     </PageHero>
