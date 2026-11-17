@@ -13,13 +13,13 @@ useMotion()
     <section class="hero">
       <div class="hero__img">
         <picture>
-          <source srcset="/img/hero-sejour.webp" type="image/webp" />
+          <source srcset="/img/salon-arche.webp" type="image/webp" />
           <img
             data-hero-img
-            src="/img/hero-sejour.jpg"
-            :alt="copy.home.imageLivingRoom"
-            width="1024"
-            height="682"
+            src="/img/salon-arche.jpg"
+            alt="Salon aux tons beige, avec une arche"
+            width="1408"
+            height="786"
             fetchpriority="high"
             decoding="async"
           />
@@ -31,22 +31,6 @@ useMotion()
           <h1 class="display" data-hero>{{ copy.home.headline }}</h1>
         </div>
         <NuxtLink to="/contact" class="button button--light" data-hero>{{ copy.home.quote }}</NuxtLink>
-      </div>
-    </section>
-
-    <section class="project wrap">
-      <PhotoFrame
-        src="/img/salon-arche.jpg"
-        alt="Salon aux tons beige, avec une arche"
-        :width="1408"
-        :height="786"
-        ratio="16 / 8"
-        parallax
-      />
-      <div class="project__meta" data-reveal>
-        <span class="label">{{ copy.home.finishes }}</span>
-        <h2 class="project__title">{{ copy.home.apartment }}</h2>
-        <NuxtLink to="/realisations" class="link">{{ copy.home.allProjects }}</NuxtLink>
       </div>
     </section>
 
