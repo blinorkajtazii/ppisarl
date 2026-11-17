@@ -356,8 +356,11 @@ main { padding-top: var(--header-h); }
   justify-content: space-between;
   gap: 24px;
 }
-.hero__text .display { max-width: 11em; }
+.hero__text .display { max-width: 11em; font-size: clamp(2rem, 5.5vw, 5.5rem); }
 .hero__text .label { color: #fff; margin-bottom: 1.2rem; display: block; }
+@media (min-width: 701px) {
+  .hero__text > div { flex-basis: 100%; }
+}
 
 .project { padding-block: clamp(48px, 7vw, 110px) 0; }
 .project__meta {
