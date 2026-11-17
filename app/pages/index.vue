@@ -80,7 +80,7 @@ useMotion()
           </NuxtLink>
         </div>
         <div class="home-comparison__slider" data-reveal>
-          <Transition name="comparison-fade" mode="out-in">
+          <Transition name="comparison-fade">
             <BeforeAfterSlider
               :key="selectedPair.id"
               class="home-comparison__slider-frame"
