@@ -473,8 +473,8 @@ main { padding-top: var(--header-h); }
 .grid .before-after figcaption { display: block; }
 @media (max-width: 700px) {
   .grid { grid-template-columns: 1fr; }
-  .grid--compact .before-after { grid-column: auto; }
-  .before-after__photos { grid-template-columns: 1fr; }
+  .grid--compact { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
+  .before-after__photos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 }
 @media (min-width: 701px) and (max-width: 1000px) {
   .grid--compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
