@@ -20,6 +20,7 @@ const emit = defineEmits<{
 
 const frame = ref<HTMLElement | null>(null)
 const position = ref(Math.max(0, Math.min(100, props.initial)))
+const isChangingPair = ref(false)
 const beforeWebp = computed(() => props.before.src.replace(/\.jpe?g$/i, '.webp'))
 const afterWebp = computed(() => props.after.src.replace(/\.jpe?g$/i, '.webp'))
 
@@ -28,8 +29,26 @@ let pendingPosition = position.value
 let updateFrame = 0
 let observer: IntersectionObserver | null = null
 let hintTimeline: gsap.core.Timeline | null = null
+let pairChangeTimeout: ReturnType<typeof setTimeout> | null = null
 let userInteracted = false
 let hasNotifiedHintUse = false
+
+watch(() => [props.before.src, props.after.src], () => {
+  position.value = Math.max(0, Math.min(100, props.initial))
+  pendingPosition = position.value
+
+  if (typeof window === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    return
+
+  isChangingPair.value = true
+  if (pairChangeTimeout)
+    clearTimeout(pairChangeTimeout)
+
+  pairChangeTimeout = setTimeout(() => {
+    isChangingPair.value = false
+    pairChangeTimeout = null
+  }, 150)
+}, { flush: 'pre' })
 
 function markHintUsed() {
   if (hasNotifiedHintUse)
@@ -149,6 +168,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   observer?.disconnect()
   hintTimeline?.kill()
+  if (pairChangeTimeout)
+    clearTimeout(pairChangeTimeout)
   if (updateFrame)
     cancelAnimationFrame(updateFrame)
 })
@@ -158,6 +179,7 @@ onBeforeUnmount(() => {
   <div
     ref="frame"
     class="before-after-slider"
+    :class="{ 'before-after-slider--changing': isChangingPair }"
     :style="{ aspectRatio: ratio, '--split': `${position}%` }"
     data-frame
     @pointerdown="startDrag"

@@ -80,18 +80,15 @@ useMotion()
           </NuxtLink>
         </div>
         <div class="home-comparison__slider" data-reveal>
-          <Transition name="comparison-fade">
-            <BeforeAfterSlider
-              :key="selectedPair.id"
-              class="home-comparison__slider-frame"
-              :before="selectedPair.before"
-              :after="selectedPair.after"
-              :ratio="selectedPair.ratio"
-              :initial="50"
-              :hint-enabled="!comparisonHintUsed"
-              @hint-used="comparisonHintUsed = true"
-            />
-          </Transition>
+          <BeforeAfterSlider
+            class="home-comparison__slider-frame"
+            :before="selectedPair.before"
+            :after="selectedPair.after"
+            :ratio="selectedPair.ratio"
+            :initial="50"
+            :hint-enabled="!comparisonHintUsed"
+            @hint-used="comparisonHintUsed = true"
+          />
         </div>
       </div>
     </section>
