@@ -24,7 +24,7 @@ const messages = {
     home: {
       seoTitle: 'PPI Plâtrerie Peinture | Genève',
       seoDescription: 'PPI, plâtrerie et peinture à Genève : cloisons, peinture intérieure, faux plafonds, enduits et ratissage. Un travail soigné, de la préparation à la finition.',
-      location: 'Genève – Suisse romande',
+      location: 'Genève – PPI Sàrl',
       headline: 'Genève – Suisse romande',
       quote: 'Demander un devis ↗',
       finishes: 'Finitions',
