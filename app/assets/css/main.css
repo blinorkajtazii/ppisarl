@@ -169,7 +169,7 @@ html.lenis, html.lenis body { height: auto; }
   transition: transform 0.5s var(--ease);
 }
 html.nav-hidden:not(.menu-open) .header { transform: translateY(-100%); }
-.header__logo img { height: 68px; width: auto; transform: translateY(-8px); mix-blend-mode: multiply; }
+.header__logo img { height: 82px; width: auto; transform: translateY(-8px); mix-blend-mode: multiply; }
 .header__side { display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); }
 .header__tel { font-weight: 600; font-size: 0.95rem; }
 .language-switch { display: inline-flex; gap: 0.35em; }
@@ -344,7 +344,9 @@ main { padding-top: var(--header-h); }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 55%);
+  background:
+    linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 55%),
+    rgba(0, 0, 0, 0.12);
 }
 .hero__text {
   position: absolute;
@@ -356,10 +358,14 @@ main { padding-top: var(--header-h); }
   justify-content: space-between;
   gap: 24px;
 }
-.hero__text .display { max-width: 11em; font-size: clamp(2rem, 5.5vw, 5.5rem); }
+.hero__text .display { max-width: 11em; font-size: clamp(1.8rem, 4.8vw, 4.8rem); }
 .hero__text .label { color: #fff; margin-bottom: 1.2rem; display: block; }
 @media (min-width: 701px) {
   .hero__text > div { flex-basis: 100%; }
+  .hero__text .display { font-size: clamp(1.8rem, 4.2vw, 4.2rem); }
+}
+@media (max-width: 700px) {
+  .hero__text { bottom: clamp(64px, 10vh, 96px); }
 }
 
 .project { padding-block: clamp(48px, 7vw, 110px) 0; }
