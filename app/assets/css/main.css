@@ -461,6 +461,8 @@ main { padding-top: var(--header-h); }
 /* ---------- Réalisations ---------- */
 .group__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: clamp(28px, 4vw, 56px); border-top: 1px solid var(--ink); padding-top: 20px; }
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px) clamp(16px, 3vw, 44px); }
+.grid--compact { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 3vw, 44px) clamp(16px, 2vw, 28px); }
+.grid--compact .before-after { grid-column: span 2; }
 .grid__item--wide { grid-column: 1 / -1; }
 .grid figcaption { display: flex; justify-content: space-between; gap: 16px; margin-top: 0; font-weight: 500; }
 .grid figcaption span { color: var(--mute); font-weight: 400; white-space: nowrap; }
@@ -471,7 +473,11 @@ main { padding-top: var(--header-h); }
 .grid .before-after figcaption { display: block; }
 @media (max-width: 700px) {
   .grid { grid-template-columns: 1fr; }
+  .grid--compact .before-after { grid-column: auto; }
   .before-after__photos { grid-template-columns: 1fr; }
+}
+@media (min-width: 701px) and (max-width: 1000px) {
+  .grid--compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ---------- Contact ---------- */

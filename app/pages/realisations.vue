@@ -24,7 +24,7 @@ useMotion()
         <h2 class="title">{{ copy.common.finish }}</h2>
         <span class="label">{{ copy.projects.finishes }}</span>
       </div>
-      <div class="grid">
+      <div class="grid grid--compact">
         <template v-for="(p, i) in finitions" :key="p.type === 'before-after' ? `pair-${i}` : p.src">
           <BeforeAfter
             v-if="p.type === 'before-after'"
@@ -51,7 +51,7 @@ useMotion()
         <h2 class="title">{{ copy.projects.site }}</h2>
         <span class="label">{{ copy.projects.workInProgress }}</span>
       </div>
-      <div class="grid">
+      <div class="grid grid--compact">
         <figure v-for="p in chantiers" :key="p.src" class="grid__item" :class="{ 'grid__item--wide': p.wide }">
           <PhotoFrame v-bind="{ src: p.src, alt: language === 'en' ? p.altEn : p.alt, width: p.width, height: p.height, ratio: p.ratio, pos: p.pos }" zoom />
           <figcaption data-reveal>
