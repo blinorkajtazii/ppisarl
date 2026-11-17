@@ -107,7 +107,7 @@ export const finitions: Finish[] = [
   },
   {
     type: 'photo',
-    src: img('finition-bureau'),
+    src: img('presta-faux-plafonds'),
     caption: 'Faux plafond blanc & plafond bleu',
     description: 'Création d’un faux plafond sur mesure et mise en peinture pour un rendu moderne et élégant',
     alt: 'Bureau avec plafond bleu et retombée courbe',
