@@ -50,24 +50,6 @@ useMotion()
       </div>
     </section>
 
-    <section class="project wrap">
-      <div class="project--split">
-        <PhotoFrame
-          src="/img/finition-ouverture.jpg"
-          :alt="copy.home.imageOpening"
-          :width="768"
-          :height="1024"
-          ratio="4 / 5"
-          parallax
-        />
-        <div class="project__meta" data-reveal>
-          <span class="label">{{ copy.home.finishes }}</span>
-          <h2 class="project__title">{{ copy.home.acousticWall }}</h2>
-          <p class="muted">{{ copy.home.acousticDesc }}</p>
-        </div>
-      </div>
-    </section>
-
     <section class="section wrap">
       <p class="label" data-reveal>{{ copy.home.trades }}</p>
       <div class="metiers">

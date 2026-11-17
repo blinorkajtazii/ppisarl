@@ -13,7 +13,7 @@ useMotion()
     <PageHero
       :kicker="copy.company.kicker"
       :lead="copy.company.lead"
-      :img="{ src: '/img/finition-moulures.jpg', alt: copy.company.image, width: 1536, height: 1024, pos: '50% 45%' }"
+      :img="{ src: '/img/finition-salon.jpg', alt: copy.company.image, width: 1174, height: 783, pos: '50% 50%' }"
     >
       <template #title>{{ copy.company.title }} <em>{{ copy.company.titleEmphasis }}</em></template>
     </PageHero>
