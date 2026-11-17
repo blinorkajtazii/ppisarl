@@ -6,7 +6,7 @@ const { language, copy, setLanguage } = useLanguage()
 <template>
   <header class="header">
     <NuxtLink to="/" class="header__logo" :aria-label="copy.common.home" @click="close">
-      <img src="/img/logo-crop.jpg" alt="PPI" width="600" height="440" />
+      <img src="/img/logo.png" alt="PPI" width="500" height="500" />
     </NuxtLink>
     <div class="header__side">
       <div class="language-switch" role="group" :aria-label="language === 'fr' ? 'Choisir la langue' : 'Select language'">

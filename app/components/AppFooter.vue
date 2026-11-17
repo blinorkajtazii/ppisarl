@@ -8,7 +8,7 @@ const { copy } = useLanguage()
     <div class="footer__top">
       <div>
         <NuxtLink to="/" class="footer__logo" :aria-label="copy.common.home">
-          <img src="/img/logo-crop.jpg" alt="PPI" width="600" height="440" />
+          <img src="/img/logo.png" alt="PPI" width="500" height="500" />
         </NuxtLink>
       </div>
       <div>

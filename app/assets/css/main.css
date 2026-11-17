@@ -169,7 +169,7 @@ html.lenis, html.lenis body { height: auto; }
   transition: transform 0.5s var(--ease);
 }
 html.nav-hidden:not(.menu-open) .header { transform: translateY(-100%); }
-.header__logo img { height: 46px; width: auto; mix-blend-mode: multiply; }
+.header__logo img { height: 68px; width: auto; transform: translateY(-8px); mix-blend-mode: multiply; }
 .header__side { display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); }
 .header__tel { font-weight: 600; font-size: 0.95rem; }
 .language-switch { display: inline-flex; gap: 0.35em; }
@@ -541,7 +541,7 @@ main { padding-top: var(--header-h); }
 /* ---------- Pied de page ---------- */
 .footer { border-top: 1px solid var(--line); padding-block: clamp(40px, 6vw, 88px) 24px; }
 .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
-.footer__logo img { height: 64px; width: auto; mix-blend-mode: multiply; }
+.footer__logo img { height: 95px; width: auto; margin-top: -26px; mix-blend-mode: multiply; }
 .footer h3 { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); margin-bottom: 14px; font-weight: 700; }
 .footer li + li { margin-top: 6px; }
 .footer a:hover { color: var(--red); }
