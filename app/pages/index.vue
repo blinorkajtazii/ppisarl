@@ -32,7 +32,6 @@ useMotion()
       </div>
       <div class="hero__text">
         <div>
-          <span class="label" data-hero>{{ copy.home.location }}</span>
           <h1 class="display" data-hero>{{ copy.home.headline }}</h1>
         </div>
         <NuxtLink to="/contact" class="button button--light" data-hero>{{ copy.home.quote }}</NuxtLink>
